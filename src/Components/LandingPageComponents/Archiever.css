@@ -1,0 +1,103 @@
+.archieversec{
+    padding: 60px 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    @media screen and (max-width:1000px) {
+        padding: 60px 20px;
+    } 
+  }
+  .archievertitle{
+    color: #1E1E1E;
+font-size: 30px;
+font-style: normal;
+font-weight: 400;
+line-height: 50px; /* 166.667% */
+text-transform: capitalize;
+@media screen and (max-width:600px) {
+   font-size: 18px;
+ }
+  }
+.archievercards{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    gap: 20px;
+    overflow: auto;
+}
+.archievercard{
+    width: 380px;
+    padding: 10px ;
+    border-radius: 12px;
+border: 1px solid #D9D9D9;
+background: #FFF;
+display: flex;
+flex-direction: column;
+row-gap: 10px;
+
+img{
+    border-radius: 6px;
+    align-self: center;
+}
+}
+.archieverdesc{
+    color: #1E1E1E;
+font-size: 20px;
+font-style: normal;
+font-weight: 500;
+line-height: 25px; /* 125% */
+text-transform: capitalize;
+}
+.archieverdate{
+    color: #727272;
+font-size: 16px;
+font-style: normal;
+font-weight: 400;
+line-height: 50px; /* 312.5% */
+text-transform: capitalize;
+display: flex;
+align-items: center;
+column-gap: 10px;
+}
+.archieverregister{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.registered{
+    color: #727272;
+font-size: 16px;
+font-style: normal;
+font-weight: 400;
+line-height: 50px; /* 312.5% */
+text-transform: capitalize;
+display: flex;
+column-gap: 15px;
+align-items: center;
+}
+.registerright{
+    display: flex;
+    column-gap: 10px;
+    div{
+        border-radius: 4px;
+background: #ECEFFF;
+color: #1E1E1E;
+font-size: 18px;
+font-style: normal;
+font-weight: 500;
+line-height: 25px; /* 138.889% */
+text-transform: capitalize;
+padding: 0px 10px;
+    }
+}
+.archieverbtn{
+    text-align: center;
+    border-radius: 6px;
+background: #673DE6;color: #FFF;
+font-size: 18px;
+font-style: normal;
+font-weight: 500;
+line-height: 50px; /* 277.778% */
+text-transform: capitalize;
+}

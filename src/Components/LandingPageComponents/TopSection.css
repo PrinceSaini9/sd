@@ -1,0 +1,136 @@
+.topsec {
+    padding: 50px 160px 50px 80px;
+    background: #ECEFFF;
+    display: flex;
+    justify-content: space-between;
+    @media screen and (max-width:1000px) {
+        padding: 50px 20px ;
+    }
+    @media screen and (max-width:900px) {
+        gap: 40px;
+        flex-direction: column;
+        align-items: center;
+    } 
+    @media screen and (max-width:600px) {
+        padding: 50px 20px ;
+    }
+}
+
+.topleft {
+    width: 520px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    @media screen and (max-width:900px) {
+        width: 100%;
+    }
+}
+
+.topright {
+    border-radius: 50px 0px;
+    background: #673DE6;
+    padding-top: 20px;
+    width: 285px;
+    position: relative;
+
+}
+
+.topimg {
+    position: absolute;
+    transform: translate(50%, -50%);
+    top: 30px;
+    right: 0;
+}
+
+.bottomimg {
+    position: absolute;
+    transform: translate(-50%, 50%);
+    bottom: 50px;
+    left: 0;
+}
+
+.lefttitle {
+    color: #1E1E1E;
+
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 50px;
+    @media screen and (max-width:900px) {
+        text-align: center;
+    }
+    /* 125% */
+    @media screen and (max-width:600px) {
+        font-size: 25px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 30px;
+
+    }
+}
+
+.topdesc {
+    color: #626262;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 35px;
+    @media screen and (max-width:900px) {
+        text-align: center;
+    }
+    /* 175% */
+    @media screen and (max-width:1000px) {
+        font-size: 12px;
+font-style: normal;
+font-weight: 400;
+line-height: 20px; 
+    }
+}
+
+.topbtngrp {
+    display: flex;
+    gap: 20px;
+    @media screen and (max-width:600px) {
+        gap: 0px;
+        justify-content: space-between;
+    }
+}
+
+.startbtn {
+    color: #FFF;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 50px;
+    /* 277.778% */
+    text-transform: capitalize;
+    text-align: center;
+    border-radius: 6px;
+    background: #673DE6;
+    padding: 0px 40px;
+    cursor: pointer;
+    @media screen and (max-width:600px) {
+        padding: 0px 10px ;
+        width: 42%;
+        font-size: 14px;
+    }
+}
+
+.talkbtn {
+    cursor: pointer;
+    color: #673DE6;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 50px;
+    /* 277.778% */
+    text-transform: capitalize;
+    border-radius: 6px;
+    border: 1.5px solid #673DE6;
+    padding: 0px 40px;
+    @media screen and (max-width:600px) {
+        padding: 0px 10px;
+        width: 42%;
+        font-size: 14px;
+    }
+}

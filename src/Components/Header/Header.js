@@ -1,47 +1,115 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Header.css";
 import Logo from "../../Assets/logo.png"
 
+const Dropdown = ({ options, isOpen }) => {
+    return (
+        <div className="dropdown" style={{ display: isOpen ? 'block' : 'none' }}>
+            {options.map((option, index) => (
+                <div className="dropdown-option" key={index}>
+                    {option}
+                </div>
+            ))}
+        </div>
+    );
+};
+
+const NavbarItem = ({ label, options, isOpen, toggleDropdown }) => {
+
+    return (
+        <div className="navbar-item" onClick={toggleDropdown}>
+            {label} <ArrowDown />
+            <Dropdown options={options} isOpen={isOpen} />
+        </div>
+    );
+};
+
 const Header = () => {
+    const [dropdowns, setDropdowns] = useState({
+        studyAbroad: false,
+        ielts: false,
+        lang: false,
+    });
+
+    const options = {
+        studyAbroad: ['Option 1', 'Option 2', 'Option 3', 'Option 4'],
+        ielts: ['OptionA', 'OptionB', 'OptionC', 'OptionD'],
+        lang: ['English', 'Spanish', 'French', 'German'],
+    };
+
+    const toggleDropdown = (dropdown) => {
+        setDropdowns((prevDropdowns) => ({
+            ...Object.fromEntries(Object.keys(prevDropdowns).map((key) => [key, key === dropdown ? !prevDropdowns[key] : false])),
+        }));
+    };
+
+    const [menu, setMenu] = useState(false);
+    const handleicon = () => {
+        setMenu(true);
+    }
+    const closeicon = () => {
+        setMenu(false)
+    }
     return (
         <div className="header">
-            <img src={Logo} alt="" />
+            {!menu && (
+                <>
+                    <img src={Logo} alt="" />
 
-            <div className="rightsec">
-                <div className="navbar">
-                    <div className="stdabroad">
-                        Study Abroad <Arrowdown />
+                    <div className="rightsec">
+                        <div className="navbar">
+                            {Object.keys(dropdowns).map((dropdown, index) => (
+                                <NavbarItem
+                                    key={index}
+                                    label={dropdown === 'lang' ? 'Language' : dropdown.charAt(0).toUpperCase() + dropdown.slice(1)}
+                                    options={options[dropdown]}
+                                    isOpen={dropdowns[dropdown]}
+                                    toggleDropdown={() => toggleDropdown(dropdown)}
+                                />
+                            ))}
+                            <div className="navbar-item">Scholarship</div>
+                            <div className="navbar-item">Blogs</div>
+                        </div>
+                        <div className="contact">
+                            <div className="number">
+                                <Call /> 18002102030
+                            </div>
+                            <div className="signbtn">
+                                <Sign /> Sign In
+                            </div>
+                            <div className="menuicon" onClick={handleicon}>&#9776;</div>
+                        </div>
                     </div>
-                    <div className="ielts">
-                        IELTS <Arrowdown />
+                </>
+            )}
+            {
+                menu && (
+                    <div className="menucontainer">
+                        <img src={Logo} alt="" />
+                        <div className="closeicon" onClick={closeicon} >&#10006;</div>
+                        <div className="menubar">
+                        {Object.keys(dropdowns).map((dropdown, index) => (
+                                <NavbarItem
+                                    key={index}
+                                    label={dropdown === 'lang' ? 'Language' : dropdown.charAt(0).toUpperCase() + dropdown.slice(1)}
+                                    options={options[dropdown]}
+                                    isOpen={dropdowns[dropdown]}
+                                    toggleDropdown={() => toggleDropdown(dropdown)}
+                                />
+                            ))}
+                            <div className="navbar-item">Scholarship</div>
+                            <div className="navbar-item">Blogs</div>
+                        </div>
                     </div>
-                    <div className="lang">
-                        Language <Arrowdown />
-                    </div>
-                    <div className="scholar">
-                        Scholarship
-                    </div>
-                    <div className="blogs">
-                        Blogs
-                    </div>
-                </div>
-                <div className="contact">
-                    <div className="number">
-                        <Call /> 18002102030
-                    </div>
-                    <div className="signbtn">
-                      <Sign/> Sign In
-                    </div>
-                    <div className="menuicon">&#9776;</div>
-                </div>
-            </div>
+                )
+            }
         </div>
     )
 }
-const Arrowdown = () => {
+const ArrowDown = () => {
     return (
         <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 35 35" fill="none">
-            <mask id="mask0_99_1684"  maskUnits="userSpaceOnUse" x="0" y="0" width="35" height="35">
+            <mask id="mask0_99_1684" maskUnits="userSpaceOnUse" x="0" y="0" width="35" height="35">
                 <rect width="35" height="35" fill="#D9D9D9" />
             </mask>
             <g mask="url(#mask0_99_1684)">
@@ -53,7 +121,7 @@ const Arrowdown = () => {
 const Call = () => {
     return (
         <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" fill="none">
-            <mask id="mask0_99_1697"  maskUnits="userSpaceOnUse" x="0" y="0" width="15" height="15">
+            <mask id="mask0_99_1697" maskUnits="userSpaceOnUse" x="0" y="0" width="15" height="15">
                 <rect width="15" height="15" fill="#D9D9D9" />
             </mask>
             <g mask="url(#mask0_99_1697)">
@@ -65,7 +133,7 @@ const Call = () => {
 const Sign = () => {
     return (
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-            <mask id="mask0_99_1678"  maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
+            <mask id="mask0_99_1678" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
                 <rect width="24" height="24" fill="#D9D9D9" />
             </mask>
             <g mask="url(#mask0_99_1678)">

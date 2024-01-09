@@ -3,6 +3,7 @@ import Header from './Components/Header/Header';
 import Body from './Components/Body/Body';
 import Footer from './Components/Footer/Footer';
 import { MyProvider } from './Context/Context';
+import "./App.css";
 
 
 const App = () => {

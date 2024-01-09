@@ -26,6 +26,9 @@ text-transform: capitalize;
     gap: 20px;
     overflow: auto;
 }
+.archievercards::-webkit-scrollbar {
+    display: none;
+  }
 .archievercard{
     width: 380px;
     padding: 10px ;

@@ -64,6 +64,7 @@ cursor: pointer;
     display: flex;
     overflow: auto;
     gap: 20px;
+    max-width: 100%;
     
 }
 .coursecards::-webkit-scrollbar {
